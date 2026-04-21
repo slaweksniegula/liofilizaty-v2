@@ -1,0 +1,25 @@
+__pycache__/
+*.pyc
+*.pyo
+.venv/
+venv/
+.DS_Store
+.vscode/
+.idea/
+*.log
+
+# Sekrety — NIGDY nie commituj
+.env
+*.pem
+*.key
+
+# Dane lokalne (w Dockerze są w wolumenie; lokalny plik do testów)
+prices.db
+raporty/*.pdf
+!raporty/.gitkeep
+
+# Claude Code — lokalna konfiguracja, nie commitujemy
+.claude/
+
+# Stare Actions workflow — w v2 odpaleniem zajmuje się n8n
+# (zostawiamy jako referencję w repo, ale można usunąć)

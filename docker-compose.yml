@@ -1,0 +1,51 @@
+# ─────────────────────────────────────────────────────────────────────────────
+# docker-compose.yml — uruchamia API lokalnie i na serwerze
+#
+# Lokalnie:
+#     docker compose up --build
+#     → API dostępne pod http://localhost:8001
+#     → Docs (Swagger) pod http://localhost:8001/docs
+#
+# Na serwerze przez Coolify:
+#     Coolify rozpozna ten plik i uruchomi automatycznie.
+#     Traefik (reverse proxy Coolify) routuje domenę do portu 8000 wewnątrz
+#     kontenera — host port 8001 służy tylko do bezpośredniego debugowania.
+#     Potrzeba tylko ustawić zmienną API_KEY w panelu Coolify
+#     (sekcja Environment Variables).
+#
+# Dane (prices.db i raporty/) są w nazwanym wolumenie Docker,
+# więc przetrwają restart kontenera. W Coolify możesz ten wolumen
+# nawet backupować przez panel.
+# ─────────────────────────────────────────────────────────────────────────────
+
+services:
+  api:
+    build: .
+    container_name: liofilizaty-api
+    restart: unless-stopped
+    ports:
+      - "8001:8000"
+    volumes:
+      # Nazwany wolumen — nie wiąż się ze ścieżką hosta, Docker trzyma go sam.
+      # Dzięki temu `docker compose down` nie skasuje bazy.
+      - liofilizaty-data:/app/data
+    environment:
+      # DATA_DIR — gdzie siedzi baza i raporty (mapowane do wolumenu)
+      - DATA_DIR=/app/data
+      # API_KEY — jeśli ustawisz, każde żądanie musi mieć nagłówek X-API-Key.
+      # Nadpisz w Coolify albo w pliku .env. Przykładowa wartość:
+      #   API_KEY=twoj-sekretny-klucz-xxx
+      # Pusty/brak = API publicznie dostępne (OK do testu lokalnego,
+      #             NIE do deploya na publiczną domenę!)
+      - API_KEY=${API_KEY:-}
+
+    # Logi przez journald/docker logs — Coolify automatycznie je zbiera
+    logging:
+      driver: json-file
+      options:
+        max-size: "10m"
+        max-file: "3"
+
+volumes:
+  liofilizaty-data:
+    name: liofilizaty-data

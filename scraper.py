@@ -20,6 +20,7 @@ from __future__ import annotations
 
 import argparse
 import datetime as dt
+import json
 import logging
 import os
 import sys
@@ -52,7 +53,7 @@ def load_config() -> dict:
         return yaml.safe_load(f)
 
 
-def run(dry_run: bool, only_shops: List[str], only_product: str | None) -> int:
+def run(dry_run: bool, only_shops: List[str], only_product: str | None, output_json: str | None = None) -> int:
     log = logging.getLogger("scraper")
     cfg = load_config()
 
@@ -108,10 +109,12 @@ def run(dry_run: bool, only_shops: List[str], only_product: str | None) -> int:
                 log.info("  %-10s NIE ZNALEZIONO", shop_id)
                 if db:
                     db.upsert(pid, shop_id, today, None, False, None, None)
-                summary_rows.append(
-                    {"product": pid, "shop": shop_id, "price": None,
-                     "available": False, "title": None}
-                )
+                summary_rows.append({
+                    "product_id": pid, "shop_id": shop_id,
+                    "date": today.isoformat(),
+                    "price_pln": None, "available": False,
+                    "url": None, "title": None,
+                })
                 continue
 
             flag = "✓" if hit.available else "✗"
@@ -126,15 +129,20 @@ def run(dry_run: bool, only_shops: List[str], only_product: str | None) -> int:
                     hit.price_pln, hit.available,
                     hit.url, hit.title,
                 )
-            summary_rows.append(
-                {"product": pid, "shop": shop_id, "price": hit.price_pln,
-                 "available": hit.available, "title": hit.title}
-            )
+            summary_rows.append({
+                "product_id": pid, "shop_id": shop_id,
+                "date": today.isoformat(),
+                "price_pln": hit.price_pln, "available": hit.available,
+                "url": hit.url, "title": hit.title,
+            })
 
-    # Krótkie podsumowanie na koniec
     log.info("═══ KONIEC ═══")
-    found = sum(1 for r in summary_rows if r["price"] is not None)
+    found = sum(1 for r in summary_rows if r["price_pln"] is not None)
     log.info("Znaleziono ceny: %d / %d zapytań", found, len(summary_rows))
+
+    if output_json:
+        Path(output_json).write_text(json.dumps(summary_rows, ensure_ascii=False), encoding="utf-8")
+        log.info("Wyniki zapisane do %s", output_json)
 
     return 0
 
@@ -147,12 +155,14 @@ def main() -> int:
                     help="Lista shop_id po przecinku (pusta = wszystkie włączone)")
     ap.add_argument("--product", default=None,
                     help="Tylko jeden produkt po id (np. rt_reindeer_stew)")
+    ap.add_argument("--output-json", default=None, metavar="PATH",
+                    help="Zapisz wyniki do pliku JSON (do importu przez API)")
     ap.add_argument("-v", "--verbose", action="store_true")
     args = ap.parse_args()
 
     setup_logging(args.verbose)
     only_shops = [s.strip() for s in args.shops.split(",") if s.strip()]
-    return run(args.dry_run, only_shops, args.product)
+    return run(args.dry_run, only_shops, args.product, args.output_json)
 
 
 if __name__ == "__main__":

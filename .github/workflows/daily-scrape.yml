@@ -1,0 +1,32 @@
+name: Daily Scrape
+
+on:
+  schedule:
+    - cron: '0 7 * * *'  # 09:00 czasu warszawskiego (UTC+2 lato)
+  workflow_dispatch:      # możliwość ręcznego uruchomienia z panelu GitHub
+
+jobs:
+  scrape:
+    runs-on: ubuntu-latest
+
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+          cache: pip
+
+      - name: Instalacja zależności
+        run: pip install -r requirements.txt
+
+      - name: Scraping cen
+        run: python scraper.py --dry-run --output-json /tmp/prices.json
+
+      - name: Import wyników do API
+        run: |
+          curl -f -X POST \
+            -H "X-Api-Key: ${{ secrets.API_KEY }}" \
+            -H "Content-Type: application/json" \
+            -d @/tmp/prices.json \
+            https://api.sniegula.com/prices/import

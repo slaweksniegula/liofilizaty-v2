@@ -33,6 +33,7 @@ import yaml
 from fastapi import BackgroundTasks, FastAPI, HTTPException, Query
 from fastapi.middleware.cors import CORSMiddleware
 from fastapi.responses import FileResponse, JSONResponse
+from pydantic import BaseModel
 
 from report import analyze_today, build_pdf
 from scraper import run as run_scraper
@@ -296,6 +297,34 @@ def download_latest():
         media_type="application/pdf",
         filename=f"liofilizaty-{dt.date.today().isoformat()}.pdf",
     )
+
+
+class PriceRecord(BaseModel):
+    product_id: str
+    shop_id: str
+    date: str
+    price_pln: Optional[float]
+    available: bool
+    url: Optional[str]
+    title: Optional[str]
+
+
+@app.post("/prices/import")
+def import_prices(records: list[PriceRecord]):
+    """
+    Przyjmuje listę rekordów cen z GitHub Actions scrapera i zapisuje do bazy.
+    Używane gdy scraping działa poza VPS (np. GitHub Actions) i POSTuje wyniki tutaj.
+    """
+    db = _db()
+    for r in records:
+        db.upsert(
+            r.product_id, r.shop_id,
+            dt.date.fromisoformat(r.date),
+            r.price_pln, r.available,
+            r.url, r.title,
+        )
+    log.info("Zaimportowano %d rekordów cen", len(records))
+    return {"imported": len(records), "date": dt.date.today().isoformat()}
 
 
 # ──────────────────────────────────────────────────────── helpers

@@ -29,10 +29,8 @@ class SkalnikAdapter(ShopAdapter):
     shop_id = "skalnik"
     base_url = "https://www.skalnik.pl"
 
-    # Skalnik ma dwie znane ścieżki szukania. Próbujemy obie.
     SEARCH_URLS = (
-        "https://www.skalnik.pl/wyszukiwanie-zaawansowane?q={q}",
-        "https://www.skalnik.pl/search.php?q={q}",
+        "https://www.skalnik.pl/catalogsearch/result/?q={q}",
     )
 
     UNAVAILABLE_MARKERS = (

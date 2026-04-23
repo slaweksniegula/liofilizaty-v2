@@ -23,7 +23,9 @@ import datetime as dt
 import json
 import logging
 import os
+import re
 import sys
+import unicodedata
 from pathlib import Path
 from typing import List
 
@@ -147,6 +149,73 @@ def run(dry_run: bool, only_shops: List[str], only_product: str | None, output_j
     return 0
 
 
+def _normalize(text: str) -> str:
+    text = unicodedata.normalize("NFD", text.lower())
+    text = "".join(c for c in text if unicodedata.category(c) != "Mn")
+    return re.sub(r"\s+", " ", text).strip()
+
+
+def _to_id(text: str) -> str:
+    text = _normalize(text)
+    text = re.sub(r"[^a-z0-9]+", "_", text)
+    return text.strip("_")[:40]
+
+
+def discover(brand: str, only_shops: List[str]) -> int:
+    log = logging.getLogger("scraper")
+    cfg = load_config()
+
+    enabled_shops = {sid: d for sid, d in cfg["shops"].items() if d.get("enabled", False)}
+    if only_shops:
+        enabled_shops = {k: v for k, v in enabled_shops.items() if k in only_shops}
+
+    adapters = {sid: ADAPTERS[sid]() for sid in enabled_shops if sid in ADAPTERS}
+
+    found: dict[str, str] = {}  # normalized_title -> original_title
+    for shop_id, adapter in adapters.items():
+        log.info("Szukam '%s' w %s...", brand, shop_id)
+        hits = adapter.search(brand)
+        log.info("  %d produktów", len(hits))
+        for hit in hits:
+            key = _normalize(hit.title)
+            if key not in found:
+                found[key] = hit.title
+
+    existing_ids = {p["id"] for p in cfg["products"]}
+    existing_names = {_normalize(p["name"]) for p in cfg["products"]}
+
+    new_products = []
+    for key, title in found.items():
+        if key in existing_names:
+            log.info("Pomijam (już w config): %s", title)
+            continue
+        pid = _to_id(title)
+        base, n = pid, 2
+        while pid in existing_ids:
+            pid = f"{base}_{n}"
+            n += 1
+        existing_ids.add(pid)
+        new_products.append({
+            "id": pid,
+            "name": title,
+            "brand": brand,
+            "search_terms": [title],
+        })
+
+    if not new_products:
+        log.info("Brak nowych produktów do dodania dla marki '%s'", brand)
+        return 0
+
+    cfg["products"].extend(new_products)
+    with CONFIG_PATH.open("w", encoding="utf-8") as f:
+        yaml.dump(cfg, f, allow_unicode=True, default_flow_style=False, sort_keys=False)
+
+    log.info("Dodano %d nowych produktów do config.yaml:", len(new_products))
+    for p in new_products:
+        log.info("  + %s  →  %s", p["id"], p["name"])
+    return 0
+
+
 def main() -> int:
     ap = argparse.ArgumentParser(description="Scraper liofilizatów")
     ap.add_argument("--dry-run", action="store_true",
@@ -155,6 +224,8 @@ def main() -> int:
                     help="Lista shop_id po przecinku (pusta = wszystkie włączone)")
     ap.add_argument("--product", default=None,
                     help="Tylko jeden produkt po id (np. rt_reindeer_stew)")
+    ap.add_argument("--discover", default=None, metavar="BRAND",
+                    help="Tryb odkrywania: wyszukaj markę, dodaj produkty do config.yaml")
     ap.add_argument("--output-json", default=None, metavar="PATH",
                     help="Zapisz wyniki do pliku JSON (do importu przez API)")
     ap.add_argument("-v", "--verbose", action="store_true")
@@ -162,6 +233,9 @@ def main() -> int:
 
     setup_logging(args.verbose)
     only_shops = [s.strip() for s in args.shops.split(",") if s.strip()]
+
+    if args.discover:
+        return discover(args.discover, only_shops)
     return run(args.dry_run, only_shops, args.product, args.output_json)
 
 

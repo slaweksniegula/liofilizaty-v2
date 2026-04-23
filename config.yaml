@@ -1,94 +1,149 @@
-# =============================================================================
-# LIOFILIZATY TRACKER — KONFIGURACJA
-# =============================================================================
-# Każdy produkt ma:
-#   - id: krótki unikalny identyfikator (bez spacji, używany w bazie i wykresach)
-#   - name: pełna nazwa do wyświetlania na raporcie
-#   - brand: Real Turmat | Trek'n Eat | Travellunch
-#   - search_terms: lista fraz, którymi skrypt szuka produktu w każdym sklepie.
-#     Skrypt sprawdza każdą frazę po kolei i bierze PIERWSZY pasujący wynik.
-#     Im więcej wariantów, tym większa szansa że znajdzie w każdym sklepie.
-#   - weight_g: (opcjonalnie) waga produktu — służy do wyliczania ceny za kg
-#     i do weryfikacji że scraper złapał właściwy wariant (np. 500g a nie 125g)
-# =============================================================================
-
 products:
-  # --- PRZYKŁADY — ZASTĄP SWOIMI ---
-  # Sławek: wklej tu swoje 10-15 dań. Format poniżej. Im dokładniejsza nazwa
-  # i waga, tym pewniejszy match. Po każdym dodaniu możesz uruchomić lokalnie
-  # `python scraper.py --dry-run` żeby zobaczyć czy scraper coś znajduje.
-
-  - id: rt_reindeer_stew
-    name: "Real Turmat — Gulasz z renifera 500g"
-    brand: "Real Turmat"
-    weight_g: 500
-    search_terms:
-      - "Real Turmat Gulasz z renifera 500"
-      - "Real Turmat Reindeer Stew"
-      - "gulasz renifer real turmat"
-
-  - id: rt_pasta_bolognese
-    name: "Real Turmat — Pasta Bolognese 500g"
-    brand: "Real Turmat"
-    weight_g: 500
-    search_terms:
-      - "Real Turmat Pasta Bolognese 500"
-      - "Real Turmat Spaghetti Bolognese"
-      - "real turmat bolognese"
-
-  - id: rt_chicken_curry
-    name: "Real Turmat — Kurczak curry 500g"
-    brand: "Real Turmat"
-    weight_g: 500
-    search_terms:
-      - "Real Turmat Kurczak curry 500"
-      - "Real Turmat Chicken Curry"
-
-  - id: tne_chicken_tikka
-    name: "Trek'n Eat — Chicken Tikka Masala"
-    brand: "Trek'n Eat"
-    weight_g: 160
-    search_terms:
-      - "Trek'n Eat Chicken Tikka Masala"
-      - "Trek n Eat Kurczak Tikka Masala"
-      - "treknEat tikka"
-
-  - id: tl_pasta_bolognese
-    name: "Travellunch — Pasta Bolognese 125g"
-    brand: "Travellunch"
-    weight_g: 125
-    search_terms:
-      - "Travellunch Pasta Bolognese"
-      - "Travellunch Makaron Bolognese"
-
-# =============================================================================
-# SKLEPY — KONFIGURACJA SCRAPINGU
-# =============================================================================
-# W prototypie: tylko Skalnik i 8a. Po potwierdzeniu że działa, dołożymy resztę.
-
+- id: danie_69_musli_czekoladowe_z_mlekiem_1os
+  name: DANIE (69) MUSLI CZEKOLADOWE Z MLEKIEM 1OS.
+  brand: travellunch
+  search_terms:
+  - DANIE (69) MUSLI CZEKOLADOWE Z MLEKIEM 1OS.
+- id: zupa_71_indonezyjska_z_makaronem_2os
+  name: ZUPA (71) INDONEZYJSKA Z MAKARONEM 2OS.
+  brand: travellunch
+  search_terms:
+  - ZUPA (71) INDONEZYJSKA Z MAKARONEM 2OS.
+- id: danie_63_pasta_bolognese_vege_2os
+  name: DANIE (63) PASTA BOLOGNESE VEGE 2OS.
+  brand: travellunch
+  search_terms:
+  - DANIE (63) PASTA BOLOGNESE VEGE 2OS.
+- id: zupa_55_gulaszowa
+  name: ZUPA (55) GULASZOWA
+  brand: travellunch
+  search_terms:
+  - ZUPA (55) GULASZOWA
+- id: danie_43_pasta_w_sosie_paprykowym_z_wo_o
+  name: DANIE (43) PASTA W SOSIE PAPRYKOWYM Z WOŁOWINĄ 2OS.
+  brand: travellunch
+  search_terms:
+  - DANIE (43) PASTA W SOSIE PAPRYKOWYM Z WOŁOWINĄ 2OS.
+- id: danie_20_puree_ziemniaczane_z_szynka_2os
+  name: DANIE (20) PUREE ZIEMNIACZANE Z SZYNKĄ 2OS.
+  brand: travellunch
+  search_terms:
+  - DANIE (20) PUREE ZIEMNIACZANE Z SZYNKĄ 2OS.
+- id: danie_27_ziemniaczki_hot_pot_z_wo_owina_
+  name: DANIE (27) ZIEMNIACZKI HOT-POT Z WOŁOWINĄ 2OS.
+  brand: travellunch
+  search_terms:
+  - DANIE (27) ZIEMNIACZKI HOT-POT Z WOŁOWINĄ 2OS.
+- id: danie_24_wo_owina_pikantna_2os
+  name: DANIE (24) WOŁOWINA PIKANTNA 2OS.
+  brand: travellunch
+  search_terms:
+  - DANIE (24) WOŁOWINA PIKANTNA 2OS.
+- id: danie_22_spaghetti_bolognese_2os
+  name: DANIE (22) SPAGHETTI BOLOGNESE 2OS.
+  brand: travellunch
+  search_terms:
+  - DANIE (22) SPAGHETTI BOLOGNESE 2OS.
+- id: danie_21_pasta_w_sosie_serowym_2os
+  name: DANIE (21) PASTA W SOSIE SEROWYM 2OS.
+  brand: travellunch
+  search_terms:
+  - DANIE (21) PASTA W SOSIE SEROWYM 2OS.
+- id: danie_40_risotto_z_warzywami_vege_2os
+  name: DANIE (40) RISOTTO Z WARZYWAMI VEGE 2OS.
+  brand: travellunch
+  search_terms:
+  - DANIE (40) RISOTTO Z WARZYWAMI VEGE 2OS.
+- id: danie_29_kurczak_hot_pot_2os
+  name: DANIE (29) KURCZAK HOT-POT 2OS.
+  brand: travellunch
+  search_terms:
+  - DANIE (29) KURCZAK HOT-POT 2OS.
+- id: danie_28_chicken_risotto_2os
+  name: DANIE (28) CHICKEN RISOTTO 2OS.
+  brand: travellunch
+  search_terms:
+  - DANIE (28) CHICKEN RISOTTO 2OS.
+- id: danie_33_spaghetti_w_sosie_smietanowym_v
+  name: DANIE (33) SPAGHETTI W SOSIE ŚMIETANOWYM VEGE 1OS.
+  brand: travellunch
+  search_terms:
+  - DANIE (33) SPAGHETTI W SOSIE ŚMIETANOWYM VEGE 1OS.
+- id: danie_68_musli_owocowe_z_mlekiem_1os
+  name: DANIE (68) MUSLI OWOCOWE Z MLEKIEM 1OS.-
+  brand: travellunch
+  search_terms:
+  - DANIE (68) MUSLI OWOCOWE Z MLEKIEM 1OS.-
+- id: danie_51_musli_proteinowe
+  name: DANIE (51) MUSLI PROTEINOWE
+  brand: travellunch
+  search_terms:
+  - DANIE (51) MUSLI PROTEINOWE
+- id: danie_67_curry_dal_z_soczewica_i_szpinak
+  name: DANIE (67) CURRY DAL Z SOCZEWICĄ I SZPINAKIEM VEGAN 1OS.
+  brand: travellunch
+  search_terms:
+  - DANIE (67) CURRY DAL Z SOCZEWICĄ I SZPINAKIEM VEGAN 1OS.
+- id: danie_23_spaghetti_carbonara_2os
+  name: DANIE (23) SPAGHETTI CARBONARA 2OS.
+  brand: travellunch
+  search_terms:
+  - DANIE (23) SPAGHETTI CARBONARA 2OS.
+- id: danie_17_beef_stroganoff_2os
+  name: DANIE (17) BEEF STROGANOFF 2OS.
+  brand: travellunch
+  search_terms:
+  - DANIE (17) BEEF STROGANOFF 2OS.
+- id: danie_13_chicken_risotto_1os
+  name: DANIE (13) CHICKEN RISOTTO 1OS
+  brand: travellunch
+  search_terms:
+  - DANIE (13) CHICKEN RISOTTO 1OS
+- id: danie_651_musli_pe_noziarniste_z_owocami
+  name: DANIE (651) MUSLI PEŁNOZIARNISTE Z OWOCAMI
+  brand: trek'n eat
+  search_terms:
+  - DANIE (651) MUSLI PEŁNOZIARNISTE Z OWOCAMI
+- id: danie_680_owsianka_bia_kowa
+  name: DANIE (680) OWSIANKA BIAŁKOWA
+  brand: trek'n eat
+  search_terms:
+  - DANIE (680) OWSIANKA BIAŁKOWA
+- id: danie_602_kuskus_z_kurczakiem
+  name: DANIE (602) KUSKUS Z KURCZAKIEM
+  brand: trek'n eat
+  search_terms:
+  - DANIE (602) KUSKUS Z KURCZAKIEM
+- id: danie_609_smazone_ziemniaki_z_wo_owina_i
+  name: DANIE (609) SMAŻONE ZIEMNIAKI Z WOŁOWINĄ I ZIELONĄ FASOLĄ
+  brand: trek'n eat
+  search_terms:
+  - DANIE (609) SMAŻONE ZIEMNIAKI Z WOŁOWINĄ I ZIELONĄ FASOLĄ
+- id: danie_626_z_ryzu_po_ba_kansku
+  name: DANIE (626) Z RYŻU PO BAŁKAŃSKU
+  brand: trek'n eat
+  search_terms:
+  - DANIE (626) Z RYŻU PO BAŁKAŃSKU
+- id: danie_650_musli_po_szwajcarsku
+  name: DANIE (650) MUSLI PO SZWAJCARSKU
+  brand: trek'n eat
+  search_terms:
+  - DANIE (650) MUSLI PO SZWAJCARSKU
+- id: danie_652_jajecznica_z_cebula
+  name: DANIE (652) JAJECZNICA Z CEBULĄ
+  brand: trek'n eat
+  search_terms:
+  - DANIE (652) JAJECZNICA Z CEBULĄ
 shops:
   skalnik:
     enabled: true
-    display_name: "Skalnik"
-    color: "#C62828"   # ciemnoczerwony na wykresach
+    display_name: Skalnik
+    color: '#C62828'
   sklep8a:
-    enabled: true
-    display_name: "8a.pl"
-    color: "#1565C0"   # ciemnoniebieski
-
-  # --- SKLEPY DO DODANIA W FAZIE 2 (po potwierdzeniu prototypu) ---
-  # wgl:           { enabled: false, display_name: "WGL",         color: "#2E7D32" }
-  # sportano:      { enabled: false, display_name: "Sportano",    color: "#6A1B9A" }
-  # sewel:         { enabled: false, display_name: "Sewel",       color: "#EF6C00" }
-  # turmat_store:  { enabled: false, display_name: "turmat.store",color: "#00695C" }
-  # camping4:      { enabled: false, display_name: "4Camping",    color: "#AD1457" }
-  # equip:         { enabled: false, display_name: "Equip.pl",    color: "#37474F" }
-  # militaria:     { enabled: false, display_name: "Militaria.pl",color: "#5D4037" }
-
-# =============================================================================
-# PARAMETRY RAPORTU
-# =============================================================================
+    enabled: false
+    display_name: 8a.pl
+    color: '#1565C0'
 report:
-  history_days: 15          # ile dni wstecz na wykresie
-  deal_threshold_pct: 10    # spadek >= X% vs średnia 7-dniowa = "🔥 OKAZJA"
-  timezone: "Europe/Warsaw"
+  history_days: 15
+  deal_threshold_pct: 10
+  timezone: Europe/Warsaw

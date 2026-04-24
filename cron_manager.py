@@ -81,7 +81,7 @@ class App(tk.Tk):
             font=("Helvetica", 15, "bold"),
         ).pack(pady=(20, 4))
         tk.Label(
-            self, text="Codzienne scrapowanie cen z Skalnika", bg=self.COLOR_BG,
+            self, text="44 produkty · 5 sklepów · Skalnik, WGL, Sportano, Sewel, 4camping", bg=self.COLOR_BG,
             font=("Helvetica", 11), fg="#555",
         ).pack()
 
@@ -130,7 +130,7 @@ class App(tk.Tk):
         status = job_status()
         if status == "enabled":
             self.lbl_status.config(text="● WŁĄCZONE", fg=self.COLOR_ON)
-            self.lbl_info.config(text="Uruchamiane codziennie o 09:00")
+            self.lbl_info.config(text="Uruchamiane codziennie o 07:00 → ~56 cen z 5 sklepów")
             self.btn_toggle.config(text="Wyłącz")
         elif status == "disabled":
             self.lbl_status.config(text="● WYŁĄCZONE", fg=self.COLOR_OFF)

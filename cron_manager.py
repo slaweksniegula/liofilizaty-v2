@@ -59,10 +59,14 @@ def disable() -> None:
 
 
 class App(tk.Tk):
-    COLOR_BG = "#f0f0f0"
-    COLOR_ON = "#2e7d32"
-    COLOR_OFF = "#c62828"
-    COLOR_WARN = "#e65100"
+    COLOR_BG = "#1e1e2e"
+    COLOR_PANEL = "#2a2a3e"
+    COLOR_FG = "#cdd6f4"
+    COLOR_FG_DIM = "#7f849c"
+    COLOR_SEP = "#45475a"
+    COLOR_ON = "#a6e3a1"
+    COLOR_OFF = "#f38ba8"
+    COLOR_WARN = "#fab387"
 
     def __init__(self):
         super().__init__()
@@ -78,50 +82,57 @@ class App(tk.Tk):
         # Nagłówek
         tk.Label(
             self, text="Liofilizaty Tracker", bg=self.COLOR_BG,
-            font=("Helvetica", 15, "bold"),
+            fg=self.COLOR_FG, font=("Helvetica", 15, "bold"),
         ).pack(pady=(20, 4))
         tk.Label(
-            self, text="44 produkty · 5 sklepów · Skalnik, WGL, Sportano, Sewel, 4camping", bg=self.COLOR_BG,
-            font=("Helvetica", 11), fg="#555",
+            self, text="44 produkty · 5 sklepów · Skalnik, WGL, Sportano, Sewel, 4camping",
+            bg=self.COLOR_BG, fg=self.COLOR_FG_DIM, font=("Helvetica", 11),
         ).pack()
 
-        tk.Frame(self, height=1, bg="#ccc").pack(fill="x", padx=20, pady=12)
+        tk.Frame(self, height=1, bg=self.COLOR_SEP).pack(fill="x", padx=20, pady=12)
 
         # Status
         sf = tk.Frame(self, bg=self.COLOR_BG)
         sf.pack(**pad)
-        tk.Label(sf, text="Status:", bg=self.COLOR_BG, font=("Helvetica", 13)).pack(side="left")
-        self.lbl_status = tk.Label(sf, text="...", bg=self.COLOR_BG, font=("Helvetica", 13, "bold"))
+        tk.Label(sf, text="Status:", bg=self.COLOR_BG, fg=self.COLOR_FG,
+                 font=("Helvetica", 13)).pack(side="left")
+        self.lbl_status = tk.Label(sf, text="...", bg=self.COLOR_BG,
+                                   font=("Helvetica", 13, "bold"))
         self.lbl_status.pack(side="left", padx=10)
 
-        self.lbl_info = tk.Label(self, text="", bg=self.COLOR_BG, font=("Helvetica", 11), fg="#666")
+        self.lbl_info = tk.Label(self, text="", bg=self.COLOR_BG,
+                                 fg=self.COLOR_FG_DIM, font=("Helvetica", 11))
         self.lbl_info.pack()
 
-        tk.Frame(self, height=1, bg="#ccc").pack(fill="x", padx=20, pady=12)
+        tk.Frame(self, height=1, bg=self.COLOR_SEP).pack(fill="x", padx=20, pady=12)
 
         # Przyciski
         bf = tk.Frame(self, bg=self.COLOR_BG)
         bf.pack(**pad)
         self.btn_toggle = tk.Button(
             bf, text="...", width=14, font=("Helvetica", 12),
-            command=self._toggle, cursor="hand2",
+            bg=self.COLOR_PANEL, fg=self.COLOR_FG,
+            activebackground=self.COLOR_SEP, activeforeground=self.COLOR_FG,
+            relief="flat", command=self._toggle, cursor="hand2",
         )
         self.btn_toggle.pack(side="left", padx=6)
         self.btn_run = tk.Button(
             bf, text="Uruchom teraz", width=14, font=("Helvetica", 12),
-            command=self._run_now, cursor="hand2",
+            bg=self.COLOR_PANEL, fg=self.COLOR_FG,
+            activebackground=self.COLOR_SEP, activeforeground=self.COLOR_FG,
+            relief="flat", command=self._run_now, cursor="hand2",
         )
         self.btn_run.pack(side="left", padx=6)
 
         # Log
-        tk.Frame(self, height=1, bg="#ccc").pack(fill="x", padx=20, pady=12)
+        tk.Frame(self, height=1, bg=self.COLOR_SEP).pack(fill="x", padx=20, pady=12)
         tk.Label(
             self, text="Ostatni log:", bg=self.COLOR_BG,
-            font=("Helvetica", 11), anchor="w",
+            fg=self.COLOR_FG_DIM, font=("Helvetica", 11), anchor="w",
         ).pack(fill="x", padx=20)
         self.txt_log = tk.Text(
             self, height=8, width=60, font=("Menlo", 10),
-            state="disabled", bg="#1e1e1e", fg="#d4d4d4",
+            state="disabled", bg=self.COLOR_PANEL, fg="#cdd6f4",
             relief="flat", padx=8, pady=6,
         )
         self.txt_log.pack(padx=20, pady=(4, 20))

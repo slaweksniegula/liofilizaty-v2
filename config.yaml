@@ -143,6 +143,22 @@ shops:
     enabled: false
     display_name: 8a.pl
     color: '#1565C0'
+  wgl:
+    enabled: false
+    display_name: WGL.pl
+    color: '#2E7D32'
+  sportano:
+    enabled: true
+    display_name: Sportano
+    color: '#1565C0'
+  sewel:
+    enabled: true
+    display_name: Sewel
+    color: '#6A1B9A'
+  4camping:
+    enabled: true
+    display_name: 4camping
+    color: '#E65100'
 report:
   history_days: 15
   deal_threshold_pct: 10

@@ -21,6 +21,7 @@ log = logging.getLogger(__name__)
 
 CATALOG_URL = "https://www.wgl.pl/category/zywnosc-liofilizowana-1410"
 BASE_URL = "https://www.wgl.pl"
+TARGET_BRANDS = ("real turmat",)
 
 
 def _normalize(text: str) -> set[str]:
@@ -66,6 +67,8 @@ class WglAdapter(ShopAdapter):
             title = link.get_text(strip=True)
             href = link.get("href", "")
             if not title or not href:
+                continue
+            if not any(b in title.lower() for b in TARGET_BRANDS):
                 continue
             if href.startswith("/"):
                 href = BASE_URL + href

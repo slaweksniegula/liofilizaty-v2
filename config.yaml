@@ -134,6 +134,91 @@ products:
   brand: trek'n eat
   search_terms:
   - DANIE (652) JAJECZNICA Z CEBULĄ
+- id: rt_losos_teriyaki
+  name: REAL TURMAT Łosoś Teriyaki
+  brand: real turmat
+  search_terms:
+  - REAL TURMAT Łosoś Teriyaki
+- id: rt_azjatyckie_curry
+  name: REAL TURMAT Azjatyckie Curry
+  brand: real turmat
+  search_terms:
+  - REAL TURMAT Azjatyckie Curry
+- id: rt_kurczak_tikka_masala
+  name: REAL TURMAT Kurczak Tikka Masala
+  brand: real turmat
+  search_terms:
+  - REAL TURMAT Kurczak Tikka Masala
+- id: rt_kebab
+  name: REAL TURMAT Kebab
+  brand: real turmat
+  search_terms:
+  - REAL TURMAT Kebab
+- id: rt_gulasz_wolowy_z_ryzem
+  name: REAL TURMAT Gulasz wołowy z ryżem
+  brand: real turmat
+  search_terms:
+  - REAL TURMAT Gulasz wołowy z ryżem
+- id: rt_kurczak_curry
+  name: REAL TURMAT Kurczak curry
+  brand: real turmat
+  search_terms:
+  - REAL TURMAT Kurczak curry
+- id: rt_gulasz_z_renifera
+  name: REAL TURMAT Gulasz z renifera
+  brand: real turmat
+  search_terms:
+  - REAL TURMAT Gulasz z renifera
+- id: rt_ramen_miso
+  name: REAL TURMAT Ramen Miso z makaronem
+  brand: real turmat
+  search_terms:
+  - REAL TURMAT Ramen Miso z makaronem
+- id: rt_taco_bowl
+  name: REAL TURMAT Taco Bowl
+  brand: real turmat
+  search_terms:
+  - REAL TURMAT Taco Bowl
+- id: rt_dorsz_tex_mex
+  name: REAL TURMAT Dorsz w stylu Tex-Mex
+  brand: real turmat
+  search_terms:
+  - REAL TURMAT Dorsz w stylu Tex-Mex
+- id: rt_szarpana_wieprzowina
+  name: REAL TURMAT Szarpana wieprzowina z ryżem
+  brand: real turmat
+  search_terms:
+  - REAL TURMAT Szarpana wieprzowina z ryżem
+- id: rt_gulasz_wolowy_z_ziemniakami
+  name: REAL TURMAT Gulasz wołowy z ziemniakami
+  brand: real turmat
+  search_terms:
+  - REAL TURMAT Gulasz wołowy z ziemniakami
+- id: rt_tajskie_curry
+  name: REAL TURMAT Tajskie czerwone curry
+  brand: real turmat
+  search_terms:
+  - REAL TURMAT Tajskie czerwone curry
+- id: rt_bacalao
+  name: REAL TURMAT Potrawka Bacalao z dorszem
+  brand: real turmat
+  search_terms:
+  - REAL TURMAT Potrawka Bacalao z dorszem
+- id: rt_kuskus_soczewica
+  name: REAL TURMAT Kuskus z soczewicą i szpinakiem
+  brand: real turmat
+  search_terms:
+  - REAL TURMAT Kuskus z soczewicą i szpinakiem
+- id: rt_chili_z_fasola
+  name: REAL TURMAT Potrawka chili z fasolą
+  brand: real turmat
+  search_terms:
+  - REAL TURMAT Potrawka chili z fasolą
+- id: rt_zapiekanka_z_dyni
+  name: REAL TURMAT Zapiekanka z dyni i słodkiej kukurydzy
+  brand: real turmat
+  search_terms:
+  - REAL TURMAT Zapiekanka z dyni i słodkiej kukurydzy
 shops:
   skalnik:
     enabled: true
@@ -144,7 +229,7 @@ shops:
     display_name: 8a.pl
     color: '#1565C0'
   wgl:
-    enabled: false
+    enabled: true
     display_name: WGL.pl
     color: '#2E7D32'
   sportano:

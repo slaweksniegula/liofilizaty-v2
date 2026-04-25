@@ -219,6 +219,81 @@ products:
   brand: real turmat
   search_terms:
   - REAL TURMAT Zapiekanka z dyni i słodkiej kukurydzy
+- id: krem_truskawkowy_travellunch
+  name: Krem truskawkowy TRAVELLUNCH
+  brand: travellunch
+  search_terms:
+  - Krem truskawkowy TRAVELLUNCH
+- id: deser_jogurtowy_z_dzikich_jagod_travellu
+  name: Deser jogurtowy z dzikich jagód TRAVELLUNCH
+  brand: travellunch
+  search_terms:
+  - Deser jogurtowy z dzikich jagód TRAVELLUNCH
+- id: zupa_pomidorowa_travellunch
+  name: Zupa pomidorowa TRAVELLUNCH
+  brand: travellunch
+  search_terms:
+  - Zupa pomidorowa TRAVELLUNCH
+- id: roso_z_kurczaka_z_makaronem_travellunch
+  name: Rosół z kurczaka z makaronem TRAVELLUNCH
+  brand: travellunch
+  search_terms:
+  - Rosół z kurczaka z makaronem TRAVELLUNCH
+- id: musli_jagodowe_travellunch
+  name: Musli jagodowe TRAVELLUNCH
+  brand: travellunch
+  search_terms:
+  - Musli jagodowe TRAVELLUNCH
+- id: suszona_zywnosc_travellunch_mieszanka_my
+  name: Suszona żywność Travellunch Mieszanka myśliwska 125 g
+  brand: travellunch
+  search_terms:
+  - Suszona żywność Travellunch Mieszanka myśliwska 125 g
+- id: deser_travellunch_musli_owocowe_z_mlekie
+  name: Deser Travellunch Musli owocowe z mlekiem 125 g
+  brand: travellunch
+  search_terms:
+  - Deser Travellunch Musli owocowe z mlekiem 125 g
+- id: deser_travellunch_deser_czekoladowy_100g
+  name: Deser Travellunch deser czekoladowy 100g
+  brand: travellunch
+  search_terms:
+  - Deser Travellunch deser czekoladowy 100g
+- id: zupa_travellunch_zupa_gulaszowa_z_miesem
+  name: Zupa Travellunch Zupa gulaszowa z mięsem wołowym 2x5
+  brand: travellunch
+  search_terms:
+  - Zupa Travellunch Zupa gulaszowa z mięsem wołowym 2x5
+- id: zupa_travellunch_indonezyjska_zupa_z_kur
+  name: Zupa Travellunch indonezyjska zupa z kurczaka z makaronem
+  brand: travellunch
+  search_terms:
+  - Zupa Travellunch indonezyjska zupa z kurczaka z makaronem
+- id: real_turmat_osos_teriyaki_danie_liofiliz
+  name: REAL TURMAT Łosoś Teriyaki - danie liofilizowane - 500 g
+  brand: real turmat
+  search_terms:
+  - REAL TURMAT Łosoś Teriyaki - danie liofilizowane - 500 g
+- id: real_turmat_azjatyckie_curry_danie_liofi
+  name: REAL TURMAT Azjatyckie Curry - danie liofilizowane - 480 g
+  brand: real turmat
+  search_terms:
+  - REAL TURMAT Azjatyckie Curry - danie liofilizowane - 480 g
+- id: real_turmat_kurczak_tikka_masala_danie_l
+  name: REAL TURMAT Kurczak Tikka Masala - danie liofilizowane - 500 g
+  brand: real turmat
+  search_terms:
+  - REAL TURMAT Kurczak Tikka Masala - danie liofilizowane - 500 g
+- id: real_turmat_kebab_danie_liofilizowane_50
+  name: REAL TURMAT Kebab - danie liofilizowane - 500 g
+  brand: real turmat
+  search_terms:
+  - REAL TURMAT Kebab - danie liofilizowane - 500 g
+- id: real_turmat_gulasz_wo_owy_z_ryzem_danie_
+  name: REAL TURMAT Gulasz wołowy z ryżem - danie liofilizowane - 500 g
+  brand: real turmat
+  search_terms:
+  - REAL TURMAT Gulasz wołowy z ryżem - danie liofilizowane - 500 g
 shops:
   skalnik:
     enabled: true

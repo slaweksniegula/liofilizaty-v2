@@ -294,6 +294,11 @@ products:
   brand: real turmat
   search_terms:
   - REAL TURMAT Gulasz wołowy z ryżem - danie liofilizowane - 500 g
+- id: zupa_travellunch_zupa_krem_z_ziemniakow_
+  name: Zupa Travellunch Zupa krem z ziemniaków 2x5
+  brand: travellunch
+  search_terms:
+  - Zupa Travellunch Zupa krem z ziemniaków 2x5
 shops:
   skalnik:
     enabled: true

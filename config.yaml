@@ -299,6 +299,11 @@ products:
   brand: travellunch
   search_terms:
   - Zupa Travellunch Zupa krem z ziemniaków 2x5
+- id: real_turmat_kurczak_curry_danie_liofiliz
+  name: REAL TURMAT Kurczak curry - danie liofilizowane - 500 g
+  brand: real turmat
+  search_terms:
+  - REAL TURMAT Kurczak curry - danie liofilizowane - 500 g
 shops:
   skalnik:
     enabled: true

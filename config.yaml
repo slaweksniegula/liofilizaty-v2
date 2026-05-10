@@ -304,6 +304,11 @@ products:
   brand: real turmat
   search_terms:
   - REAL TURMAT Kurczak curry - danie liofilizowane - 500 g
+- id: real_turmat_gulasz_z_renifera_danie_liof
+  name: REAL TURMAT Gulasz z renifera - danie liofilizowane - 460 g
+  brand: real turmat
+  search_terms:
+  - REAL TURMAT Gulasz z renifera - danie liofilizowane - 460 g
 shops:
   skalnik:
     enabled: true

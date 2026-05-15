@@ -309,6 +309,16 @@ products:
   brand: real turmat
   search_terms:
   - REAL TURMAT Gulasz z renifera - danie liofilizowane - 460 g
+- id: real_turmat_ziemniaczane_garam_masala_da
+  name: REAL TURMAT Ziemniaczane Garam Masala - danie liofilizowane - 460 g
+  brand: real turmat
+  search_terms:
+  - REAL TURMAT Ziemniaczane Garam Masala - danie liofilizowane - 460 g
+- id: real_turmat_pasta_bolognese_danie_liofil
+  name: REAL TURMAT Pasta Bolognese - danie liofilizowane - 500 g
+  brand: real turmat
+  search_terms:
+  - REAL TURMAT Pasta Bolognese - danie liofilizowane - 500 g
 shops:
   skalnik:
     enabled: true

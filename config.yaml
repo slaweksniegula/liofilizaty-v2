@@ -319,6 +319,11 @@ products:
   brand: real turmat
   search_terms:
   - REAL TURMAT Pasta Bolognese - danie liofilizowane - 500 g
+- id: deser_travellunch_musli_proteinowe_125g
+  name: Deser Travellunch Müsli proteinowe 125g
+  brand: travellunch
+  search_terms:
+  - Deser Travellunch Müsli proteinowe 125g
 shops:
   skalnik:
     enabled: true

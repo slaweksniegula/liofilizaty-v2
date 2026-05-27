@@ -324,6 +324,11 @@ products:
   brand: travellunch
   search_terms:
   - Deser Travellunch Müsli proteinowe 125g
+- id: zupa_travellunch_zupa_pomidorowa_z_grzan
+  name: Zupa Travellunch Zupa pomidorowa z grzankami 2x
+  brand: travellunch
+  search_terms:
+  - Zupa Travellunch Zupa pomidorowa z grzankami 2x
 shops:
   skalnik:
     enabled: true

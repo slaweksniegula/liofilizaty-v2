@@ -329,6 +329,11 @@ products:
   brand: travellunch
   search_terms:
   - Zupa Travellunch Zupa pomidorowa z grzankami 2x
+- id: real_turmat_taco_bowl_danie_liofilizowan
+  name: REAL TURMAT Taco Bowl - danie liofilizowane - 420 g
+  brand: real turmat
+  search_terms:
+  - REAL TURMAT Taco Bowl - danie liofilizowane - 420 g
 shops:
   skalnik:
     enabled: true

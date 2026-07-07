@@ -334,6 +334,11 @@ products:
   brand: real turmat
   search_terms:
   - REAL TURMAT Taco Bowl - danie liofilizowane - 420 g
+- id: suszona_zywnosc_travellunch_tarta_ryzowa
+  name: Suszona żywność Travellunch Tarta ryżowa z jabłkami i cynamonem
+  brand: travellunch
+  search_terms:
+  - Suszona żywność Travellunch Tarta ryżowa z jabłkami i cynamonem
 shops:
   skalnik:
     enabled: true

@@ -339,6 +339,11 @@ products:
   brand: travellunch
   search_terms:
   - Suszona żywność Travellunch Tarta ryżowa z jabłkami i cynamonem
+- id: kasza_kuskus_wegetarianska_travellunch
+  name: Kasza kuskus wegetariańska TRAVELLUNCH
+  brand: travellunch
+  search_terms:
+  - Kasza kuskus wegetariańska TRAVELLUNCH
 shops:
   skalnik:
     enabled: true

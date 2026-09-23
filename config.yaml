@@ -344,6 +344,16 @@ products:
   brand: travellunch
   search_terms:
   - Kasza kuskus wegetariańska TRAVELLUNCH
+- id: suszona_zywnosc_travellunch_wo_owina_po_
+  name: Suszona żywność Travellunch Wołowina po węgiersku 125 g
+  brand: travellunch
+  search_terms:
+  - Suszona żywność Travellunch Wołowina po węgiersku 125 g
+- id: suszona_zywnosc_travellunch_strogonow_wo
+  name: Suszona żywność Travellunch Strogonow wołowy z ryżem 125 g
+  brand: travellunch
+  search_terms:
+  - Suszona żywność Travellunch Strogonow wołowy z ryżem 125 g
 shops:
   skalnik:
     enabled: true

@@ -354,6 +354,11 @@ products:
   brand: travellunch
   search_terms:
   - Suszona żywność Travellunch Strogonow wołowy z ryżem 125 g
+- id: suszona_zywnosc_travellunch_chilli_con_c
+  name: Suszona żywność Travellunch Chilli con carne z wołowiną 250
+  brand: travellunch
+  search_terms:
+  - Suszona żywność Travellunch Chilli con carne z wołowiną 250
 shops:
   skalnik:
     enabled: true

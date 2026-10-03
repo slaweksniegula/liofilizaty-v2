@@ -359,6 +359,11 @@ products:
   brand: travellunch
   search_terms:
   - Suszona żywność Travellunch Chilli con carne z wołowiną 250
+- id: suszona_zywnosc_travellunch_paella_bez_l
+  name: Suszona żywność Travellunch Paella bez laktozy 125g
+  brand: travellunch
+  search_terms:
+  - Suszona żywność Travellunch Paella bez laktozy 125g
 shops:
   skalnik:
     enabled: true

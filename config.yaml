@@ -364,6 +364,11 @@ products:
   brand: travellunch
   search_terms:
   - Suszona żywność Travellunch Paella bez laktozy 125g
+- id: suszona_zywnosc_travellunch_makaron_z_so
+  name: Suszona żywność Travellunch Makaron z sosem śmietanowym 125g
+  brand: travellunch
+  search_terms:
+  - Suszona żywność Travellunch Makaron z sosem śmietanowym 125g
 shops:
   skalnik:
     enabled: true

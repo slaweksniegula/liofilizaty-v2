@@ -369,6 +369,16 @@ products:
   brand: travellunch
   search_terms:
   - Suszona żywność Travellunch Makaron z sosem śmietanowym 125g
+- id: suszona_zywnosc_travellunch_makaron_napo
+  name: Suszona żywność Travellunch Makaron Napoli wegetariański 125 g
+  brand: travellunch
+  search_terms:
+  - Suszona żywność Travellunch Makaron Napoli wegetariański 125 g
+- id: suszona_zywnosc_travellunch_grzyby_lesne
+  name: Suszona żywność Travellunch Grzyby leśne z makaronem 125 g
+  brand: travellunch
+  search_terms:
+  - Suszona żywność Travellunch Grzyby leśne z makaronem 125 g
 shops:
   skalnik:
     enabled: true
